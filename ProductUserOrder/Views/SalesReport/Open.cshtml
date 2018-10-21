@@ -1,0 +1,25 @@
+﻿@*@model ProductOrderUser.Models.Order*@
+
+@{
+    ViewBag.Title = "GetSalesReport";
+}
+
+<h2>SalesReport</h2>
+
+@using (Html.BeginForm("GetSalesReport", "SalesReport"))
+{
+    @*@Html.AntiForgeryToken()*@
+
+    <label>StartDate</label> @Html.TextBox("startDate") <br />
+    <label>EndDate</label> @Html.TextBox("endDate") <br />
+
+    <input type="submit" name="operation" value="Get Sales Result" />
+}
+
+
+
+<div>
+    @Html.ActionLink("Back to List", "Index", "Home")
+</div>
+
+

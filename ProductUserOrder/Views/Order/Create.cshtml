@@ -1,0 +1,61 @@
+﻿@model ProductOrderUser.Models.Order
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>CreateOrder</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Order</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Products)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Products)
+            @Html.ValidationMessageFor(model => model.Products)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Customer)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Customer)
+            @Html.ValidationMessageFor(model => model.Customer)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NumberOfProductsPurchased)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NumberOfProductsPurchased)
+            @Html.ValidationMessageFor(model => model.NumberOfProductsPurchased)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PurchasedDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PurchasedDate)
+            @Html.ValidationMessageFor(model => model.PurchasedDate)
+        </div>
+
+        <p>
+            <input type="submit" value="Create new order" />
+        </p>
+    </fieldset>
+}
+
+
+
+<div>
+    @Html.ActionLink("Back to List", "Index", "Home")
+</div>
+
+

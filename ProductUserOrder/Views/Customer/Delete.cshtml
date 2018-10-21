@@ -1,0 +1,54 @@
+﻿@model ProductOrderUser.Models.Customer
+
+@{
+    Layout = null;
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Customer</legend>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.FirstName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FirstName)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.LastName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastName)
+    </div>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.RegistrationDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RegistrationDate)
+    </div>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Email)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Orders)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Orders)
+    </div>
+</fieldset>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <p>
+        @*<input type="submit" name=@Model.Id value="Delete" />*@ |
+        <input type="submit" @*name=555*@ value="DeleteCustomer" /> |
+        @Html.ActionLink("Back to List", "Index", "Home")
+    </p>
+}
+

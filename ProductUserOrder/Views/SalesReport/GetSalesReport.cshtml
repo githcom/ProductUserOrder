@@ -1,0 +1,31 @@
+﻿
+@{
+    Layout = null;
+}
+
+<h3> Отчет по продажам за период @ViewBag.StartDate - @ViewBag.EndDate </h3>
+<table>
+    <tr>
+        <th>Product</th>
+        <th>NumberOfProductsPurchased</th>
+        <th>TotalPrice</th>
+    </tr>
+
+    @*@foreach (Product item in ViewBag.Products)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(Item => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(Item => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(Item => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(Item => item.DateAdded)
+            </td>
+        </tr>
+    }*@
+</table>

@@ -1,0 +1,42 @@
+﻿@model ProductOrderUser.Models.Order
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Order</legend>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Products)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Products)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Customer)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Customer)
+    </div>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.NumberOfProductsPurchased)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NumberOfProductsPurchased)
+    </div>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.PurchasedDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PurchasedDate)
+    </div>
+
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index", "Home")
+</p>
