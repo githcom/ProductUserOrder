@@ -1,9 +1,11 @@
-﻿@using ProductOrderUser.Models
+﻿@using System.Activities.Statements
+@using Microsoft.Ajax.Utilities
+@using ProductOrderUser.Models
 @*@model IEnumerable<ProductOrderUser.Models.Product>*@
+@model IEnumerable<ProductOrderUser.Models.Order>
 
 @{
     ViewBag.Title = "Home Page";
-
 }
 
 
@@ -13,6 +15,7 @@
 <h3> Products table </h3>
 <table>
     <tr>
+        <th>Id</th>
         <th>Name</th>
         <th>Price</th>
         <th>Description</th>
@@ -21,28 +24,31 @@
 
     @foreach (Product item in ViewBag.Products)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(Item => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(Item => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(Item => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(Item => item.DateAdded)
-            </td>
-            <td>
-                @*@Html.ActionLink("Edit", "Edit", new { id = item.Id })*@
-                <a href="/Product/Edit/@item.Id">Edit</a> |
-                @*@Html.ActionLink("Details", "Details", new { id = item.Id }) |*@
-                <a href="/Product/Details/@item.Id">Details</a> |
-                @*@Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
-                <a href="/Product/Delete/@item.Id">Delete</a>
-            </td>
-        </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(Item => item.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(Item => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(Item => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(Item => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(Item => item.DateAdded)
+        </td>
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { id = item.Id })*@
+            <a href="/Product/Edit/@item.Id">Edit</a> |
+            @*@Html.ActionLink("Details", "Details", new { id = item.Id }) |*@
+            <a href="/Product/Details/@item.Id">Details</a> |
+            @*@Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
+            <a href="/Product/Delete/@item.Id">Delete</a>
+        </td>
+    </tr>
     }
 </table>
 
@@ -53,6 +59,7 @@
 <h3> Customers table </h3>
 <table>
     <tr>
+        <th>Id</th>
         <th>FirstName</th>
         <th>LastName</th>
         <th>RegistrationDate</th>
@@ -62,31 +69,35 @@
 
     @foreach (Customer item in ViewBag.Customers)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(Item => item.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(Item => item.LastName)
-            </td>
-            <td>
-                @Html.DisplayFor(Item => item.RegistrationDate)
-            </td>
-            <td>
-                @Html.DisplayFor(Item => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(Item => item.Orders)
-            </td>
-            <td>
-                @*@Html.ActionLink("Edit", "Edit", new { id = item.Id })*@
-                <a href="/Customer/Edit/@item.Id">Edit</a> |
-                @*@Html.ActionLink("Details", "Details", new { id = item.Id }) |*@
-                <a href="/Customer/Details/@item.Id">Details</a> |
-                @*@Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
-                <a href="/Customer/Delete/@item.Id">Delete</a>
-            </td>
-        </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(Item => item.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(Item => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(Item => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(Item => item.RegistrationDate)
+        </td>
+        <td>
+            @Html.DisplayFor(Item => item.Email)
+        </td>
+        <td>
+            @*@Html.DisplayFor(Item => item.Orders.ForEach(o => o.Id))*@
+            @Html.DisplayFor(Item => item.Orders)
+        </td>
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { id = item.Id })*@
+            <a href="/Customer/Edit/@item.Id">Edit</a> |
+            @*@Html.ActionLink("Details", "Details", new { id = item.Id }) |*@
+            <a href="/Customer/Details/@item.Id">Details</a> |
+            @*@Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
+            <a href="/Customer/Delete/@item.Id">Delete</a>
+        </td>
+    </tr>
     }
 </table>
 
@@ -97,6 +108,7 @@
 <h3> Orders table </h3>
 <table>
     <tr>
+        <th>Id</th>
         <th>Products</th>
         <th>Customer</th>
         <th>NumberOfProductsPurchased</th>
@@ -107,10 +119,13 @@
     {
         <tr>
             <td>
+                @Html.DisplayFor(Item => item.Id)
+            </td>
+            <td>
                 @Html.DisplayFor(Item => item.Products)
             </td>
             <td>
-                @Html.DisplayFor(Item => item.Customer)
+                @Html.DisplayFor(Item => item.Customer.FirstName)
             </td>
             <td>
                 @Html.DisplayFor(Item => item.NumberOfProductsPurchased)
